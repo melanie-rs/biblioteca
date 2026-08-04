@@ -26,6 +26,8 @@ $resultado = mysqli_query($conexion, $sql);
 
 <body>
 
+    <?php require_once "../includes/nav.php"; ?>
+
     <h1>Listado de Préstamos</h1>
 
     <a href="agregar.php">Registrar préstamo</a>
