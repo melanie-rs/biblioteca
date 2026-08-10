@@ -1,6 +1,6 @@
 <?php
 
-require_once "../config/conexion.php";
+require_once "cnn.php";
 
 $sql = "SELECT * FROM socios";
 
@@ -17,13 +17,9 @@ $resultado = mysqli_query($conexion, $sql);
 
 <body>
 
-    <?php require_once "../includes/nav.php"; ?>
+    <?php require_once "menu.php"; ?>
 
     <h1>Listado de Socios</h1>
-
-    <a href="agregar.php">Agregar socio</a>
-
-    <br><br>
 
     <table border="1">
 
@@ -34,7 +30,6 @@ $resultado = mysqli_query($conexion, $sql);
             <th>Apellido</th>
             <th>Teléfono</th>
             <th>Email</th>
-            <th>Acciones</th>
         </tr>
 
         <?php while ($socio = mysqli_fetch_assoc($resultado)) { ?>
@@ -52,16 +47,6 @@ $resultado = mysqli_query($conexion, $sql);
                 <td><?php echo $socio['telefono']; ?></td>
 
                 <td><?php echo $socio['email']; ?></td>
-
-                <td>
-                    <a href="editar.php?id=<?php echo $socio['id']; ?>">
-                        Editar
-                    </a>
-                    |
-                    <a href="eliminar.php?id=<?php echo $socio['id']; ?>">
-                        Eliminar
-                    </a>
-                </td>
 
             </tr>
 

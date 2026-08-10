@@ -1,7 +1,6 @@
 <?php
 
-require_once "../config/conexion.php";
-require_once "../includes/nav.php";
+require_once "cnn.php";
 
 $sql = "SELECT * FROM libros";
 
@@ -18,11 +17,9 @@ $resultado = mysqli_query($conexion, $sql);
 
 <body>
 
-    <?php require_once "../includes/nav.php"; ?>
+    <?php require_once "menu.php"; ?>
 
     <h1>Listado de Libros</h1>
-
-    <a href="agregar.php">Agregar libro</a>
 
     <br><br>
 
@@ -33,7 +30,6 @@ $resultado = mysqli_query($conexion, $sql);
             <th>Autor</th>
             <th>Editorial</th>
             <th>Año</th>
-            <th>Acciones</th>
         </tr>
 
         <?php while ($libro = mysqli_fetch_assoc($resultado)) { ?>
@@ -44,16 +40,6 @@ $resultado = mysqli_query($conexion, $sql);
                 <td><?php echo $libro['autor']; ?></td>
                 <td><?php echo $libro['editorial']; ?></td>
                 <td><?php echo $libro['año']; ?></td>
-
-                <td>
-                    <a href="editar.php?id=<?php echo $libro['id']; ?>">
-                        Editar
-                    </a>
-
-                    <a href="eliminar.php?id=<?php echo $libro['id']; ?>">
-                        Eliminar
-                    </a>
-                </td>
             </tr>
 
         <?php } ?>

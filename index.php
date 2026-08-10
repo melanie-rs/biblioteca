@@ -1,6 +1,6 @@
 <?php
 
-require_once "config/conexion.php";
+require_once "cnn.php";
 
 ?>
 
@@ -14,11 +14,13 @@ require_once "config/conexion.php";
 
 <body>
 
-    <?php require_once "includes/nav.php"; ?>
+    <?php require_once "menu.php"; ?>
 
     <h1>Sistema de Gestión de Biblioteca</h1>
 
     <p>Bienvenido al sistema.</p>
+
+    <img src="img/biblioteca.jpg" alt="Biblioteca">
 
 </body>
 
